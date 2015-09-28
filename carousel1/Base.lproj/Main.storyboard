@@ -157,23 +157,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MeE-FF-7Ln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1075" y="-1421"/>
+            <point key="canvasLocation" x="-1124" y="-1469"/>
         </scene>
-        <!--View Controller-->
+        <!--Forgot View Controller-->
         <scene sceneID="qgm-dU-IVc">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dqe-ts-VGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="QZE-hR-u4e" sceneMemberID="viewController">
+                <viewController id="QZE-hR-u4e" customClass="forgotViewController" customModule="carousel1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eSB-Al-Rc7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="forgot_password_nav" id="ueL-Zc-MhK">
-                                <rect key="frame" x="-1" y="0.0" width="320" height="66"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="forgot_password_text" id="Rdy-0M-Cg8">
                                 <rect key="frame" x="-1" y="95" width="320" height="67"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IbC-qL-0IP">
+                                <rect key="frame" x="-1" y="-12" width="79" height="107"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="back:" destination="QZE-hR-u4e" eventType="touchUpInside" id="8se-Dy-GAj"/>
+                                </connections>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="forgot_password_nav" id="ueL-Zc-MhK">
+                                <rect key="frame" x="-1" y="0.0" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
@@ -256,10 +264,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="welcome1" id="nXK-l8-8ji">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="welcome2" id="Bl9-C8-n3e">
                                         <rect key="frame" x="320" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -283,6 +287,10 @@
                                             <segue destination="s5D-R8-fxZ" kind="modal" id="wMh-MS-T0i"/>
                                         </connections>
                                     </button>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="welcome1" id="nXK-l8-8ji">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
                                 </subviews>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" id="t0Z-UW-yls">
@@ -299,7 +307,7 @@
                     <connections>
                         <outlet property="pageControl" destination="t0Z-UW-yls" id="Ml0-GX-0q6"/>
                         <outlet property="scrollView" destination="cEP-V4-w3g" id="nES-mA-7Rv"/>
-                        <outlet property="tryButton" destination="EkI-Oe-LDe" id="iFh-oA-I2J"/>
+                        <outlet property="tryButton" destination="EkI-Oe-LDe" id="tAG-Vv-sn3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZNc-jD-ZMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

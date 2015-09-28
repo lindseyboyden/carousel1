@@ -13,9 +13,8 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     
   
-    @IBOutlet weak var pageControl: UIPageControl!
-    
     @IBOutlet weak var tryButton: UIImageView!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
