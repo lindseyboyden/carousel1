@@ -27,10 +27,7 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         
         tryButton.alpha = 0
         
-        if pageControl.currentPage == 4 {
-            tryButton.alpha = 1
         
-        }
        
 
         // Do any additional setup after loading the view.
@@ -42,6 +39,13 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         
         // Set the current page, so the dots will update
         pageControl.currentPage = page
+        
+        if scrollView.contentOffset.x >= 960 {
+            self.tryButton.alpha = 1
+            print("last page")
+            print(tryButton.center.x)
+            print(tryButton.center.y)
+        }
         
     }
 

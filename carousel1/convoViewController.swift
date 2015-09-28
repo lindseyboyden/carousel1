@@ -10,6 +10,10 @@ import UIKit
 
 class convoViewController: UIViewController {
 
+    @IBAction func back(sender: AnyObject) {
+        
+        navigationController?.popViewControllerAnimated(true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

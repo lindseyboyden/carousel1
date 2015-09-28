@@ -14,6 +14,10 @@ class SignInViewController: UIViewController {
     let offset: CGFloat! = -50
     
 
+    @IBAction func back(sender: AnyObject) {
+        
+        navigationController?.popViewControllerAnimated(true)
+    }
     @IBAction func dismissButton(sender: AnyObject) {
         
         //dismissViewControllerAnimated(true, completion:)
@@ -28,6 +32,7 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         hiddenbutton.enabled = false
+        
         
         loader.hidden = true
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)

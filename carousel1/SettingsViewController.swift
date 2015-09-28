@@ -10,6 +10,10 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBAction func back(sender: AnyObject) {
+        
+       dismissViewControllerAnimated(true, completion: nil)
+    }
     @IBOutlet weak var settingsImage: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     
