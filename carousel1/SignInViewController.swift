@@ -14,6 +14,7 @@ class SignInViewController: UIViewController {
     let offset: CGFloat! = -50
     
 
+    @IBOutlet weak var signinslide: UIView!
     @IBAction func back(sender: AnyObject) {
         
         navigationController?.popViewControllerAnimated(true)
@@ -26,13 +27,14 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var emailtext: UITextField!
     
+    @IBOutlet weak var signinContainer: UIView!
     @IBOutlet weak var passwordtext: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hiddenbutton.enabled = false
-        
+        initialY = signinslide.frame.origin.y
         
         loader.hidden = true
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
@@ -43,62 +45,65 @@ class SignInViewController: UIViewController {
     
     @IBAction func signinbutton(sender: AnyObject) {
         
-        if emailtext.text == "" {
+        loader.startAnimating()
+        
+        self.delay(2) {
+            self.loader.stopAnimating()
             
-            let alertController = UIAlertController(title: "oh no", message: "email is empty", preferredStyle: .Alert)
-            
-            // create an OK action
-            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                // handle response here.
+            if self.emailtext.text == "" {
                 
-                }
-            // add the OK action to the alert controller
-            
-            alertController.addAction(OKAction)
-
-            
-            presentViewController(alertController, animated: true) {
-                // optional code for what happens after the alert controller has finished presenting
-
+                let alertController = UIAlertController(title: "oh no", message: "email is empty", preferredStyle: .Alert)
                 
+                // create an OK action
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    // handle response here.
+                    
                 }
-            
-        }
-        else if passwordtext.text == "" {
-            
-            let alertController = UIAlertController(title: "oh no", message: " password is empty", preferredStyle: .Alert)
-            
-            // create an OK action
-            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                // handle response here.
+                // add the OK action to the alert controller
                 
-                }
-            // add the OK action to the alert controller
-            
-            alertController.addAction(OKAction)
-            
-            
-            presentViewController(alertController, animated: true) {
-                // optional code for what happens after the alert controller has finished presenting
-                }
-        }
-            
-        else if (emailtext.text == "email") && (passwordtext.text == "password") {
-            
-            print("yatzee!")
-            
-            loader.hidden = false
-            
-            self.performSegueWithIdentifier("firstSegue", sender: self)
-            
-        }
-        else {
-            
-            loader.hidden = false
-            
-            self.delay(2) {
+                alertController.addAction(OKAction)
                 
-                self.loader.hidden = true
+                
+                self.presentViewController(alertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                    
+                    
+                }
+                
+            }
+            else if self.passwordtext.text == "" {
+                
+                let alertController = UIAlertController(title: "oh no", message: " password is empty", preferredStyle: .Alert)
+                
+                // create an OK action
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    // handle response here.
+                    
+                }
+                // add the OK action to the alert controller
+                
+                alertController.addAction(OKAction)
+                
+                
+                self.presentViewController(alertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
+            }
+                
+            else if (self.emailtext.text == "email") && (self.passwordtext.text == "password") {
+                
+                print("yatzee!")
+                
+                
+                
+                self.performSegueWithIdentifier("firstSegue", sender: self)
+                
+            }
+            else {
+                
+                
+                
+               
                 
                 let alertController = UIAlertController(title: "oh no", message: " email and password don't match", preferredStyle: .Alert)
                 
@@ -106,7 +111,7 @@ class SignInViewController: UIViewController {
                 let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                     // handle response here.
                     
-                    }
+                }
                 // add the OK action to the alert controller
                 
                 alertController.addAction(OKAction)
@@ -114,12 +119,12 @@ class SignInViewController: UIViewController {
                 
                 self.presentViewController(alertController, animated: true){
                     // optional code for what happens after the alert controller has finished presenting
-                    }
+                }
                 
             }
+        }
         
-    
-    }
+        
     }
     
 
@@ -134,14 +139,15 @@ class SignInViewController: UIViewController {
 
 
     func keyboardWillShow(notification: NSNotification!) {
-        
-        
+        signinContainer.center.y = 230
+        signinslide.center.y = 70
         
         
     }
     
     func keyboardWillHide(notification: NSNotification!) {
-        
+        signinslide.center.y = initialY
+        signinContainer.center.y = initialY
     }
     func scrollViewWillBeginDragging(scrollView: UIScrollView!) {
         
